@@ -1,0 +1,148 @@
+// 覆盖menu样式
+.el-menu {
+  border-right: none;
+  .el-menu-item {
+    height: 40px;
+    line-height: 40px;
+    &:hover {
+      background-color: #2c455c !important;
+    }
+  }
+}
+
+// 覆盖tabs样式
+.el-tabs {
+  .el-tabs__nav-wrap::after {
+    height: 1px;
+  }
+  .el-tabs__item {
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+  }
+}
+
+// 覆盖button样式
+.el-button {
+  &.el-button--small {
+    padding: 6px 15px;
+    line-height: 16px;
+  }
+}
+
+// 覆盖table样式
+.el-table {
+  th {
+    padding: 0;
+    .cell {
+      height: 38px;
+      line-height: 38px;
+    }
+  }
+  td {
+    padding: 0;
+    border-right: none;
+    border-bottom: none;
+    .cell {
+      min-height: 34px;
+      line-height: 34px;
+    }
+  }
+  .el-button--text {
+    padding: 0;
+  }
+}
+
+// 覆盖form样式
+.el-form {
+  .el-form-item {
+    margin-bottom: 16px;
+    .el-form-item__label {
+      font-size: 12px;
+      height: 26px;
+      line-height: 26px;
+    }
+    .el-form-item__content {
+      line-height: 26px;
+    }
+  }
+}
+
+// 覆盖input样式
+.el-input {
+  font-size: 12px;
+  .el-input__inner {
+    padding: 0 8px;
+    height: 26px;
+    line-height: 26px;
+  }
+  .el-input__suffix {
+    cursor: pointer;
+    top: -2px;
+  }
+}
+
+// 覆盖textarea样式
+.el-textarea {
+  .el-textarea__inner {
+    padding: 8px;
+    border-radius: 2px;
+  }
+}
+
+// 覆盖date-editor样式
+.el-date-editor {
+  border-radius: 2px;
+  .el-range-separator {
+    line-height: 26px;
+  }
+  .el-input__icon {
+    line-height: 28px;
+  }
+}
+
+// 覆盖dialog样式
+.el-dialog {
+  .el-dialog__header {
+    border-bottom-color: #f4f4f4;
+    padding: 15px 15px 5px;
+  }
+  .el-dialog__body {
+    padding: 20px 20px 0px 20px;
+  }
+  .el-dialog__footer {
+    padding: 5px 15px 15px;
+    border-top: 1px solid #f4f4f4;
+  }
+}
+
+//覆盖popover样式
+.el-popover {
+  min-width: 0;
+  .el-popover__title {
+    margin-bottom: 20px;
+    font-weight: 550;
+  }
+  .el-form {
+    .el-form-item {
+      margin-bottom: 14px;
+    }
+  }
+  .popover-opera {
+    text-align: right;
+    margin-top: 14px;
+  }
+}
+
+// 覆盖steps样式
+.el-steps {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+// 覆盖drawer样式
+.el-drawer {
+  &:focus {
+    outline: 0;
+  }
+}
