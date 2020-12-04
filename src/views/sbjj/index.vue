@@ -120,6 +120,7 @@ export default {
 .sbjj {
   .ct-left {
     flex: 1;
+    padding-right: 50px;
     .top {
       height: 40%;
       .body-top {
@@ -179,6 +180,7 @@ export default {
   }
   .ct-right {
     flex: 1;
+    padding-left: 50px;
     .top {
       height: 20%;
     }
