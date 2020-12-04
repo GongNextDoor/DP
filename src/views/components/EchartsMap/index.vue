@@ -27,11 +27,10 @@ export default {
       this.myEchart = this.$echarts.init(document.getElementById('yongzhouMap'))
 
       var img = new Image()
-      img.src = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAIAAAD9b0jDAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ4IDc5LjE2NDAzNiwgMjAxOS8wOC8xMy0wMTowNjo1NyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjAgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkQ2QjdBNjdDMkYwRjExRUJCQjgwRTg0MDdEMEE4NEUzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkQ2QjdBNjdEMkYwRjExRUJCQjgwRTg0MDdEMEE4NEUzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RDZCN0E2N0EyRjBGMTFFQkJCODBFODQwN0QwQTg0RTMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RDZCN0E2N0IyRjBGMTFFQkJCODBFODQwN0QwQTg0RTMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5UuZDfAAABl0lEQVR42qSV3XLCIBBG+Qgm6Yw1F2Z63b5Tx970OftUvXA6ttbfLQEjm7IRVMZROKAQ9riLp/ePz6+N6ls7q3xnHFIEtwE+lva9WD+/KtZ+NgcNLL934xD+JcPtUWttAO0oUb+bnQXgmArQYd9JQhNmFVvphwOGwVCGcL8Mo4RGIxBp2J2H9LypyG/gQNvUdTXpYYhJXZr5rCR2Sxdgd9JpXcQHG0CcjjN9MBKcnB6OKNzp6vd4fuK6PHUYJLt5Dw9s5RnuA6zglVrwa+lE0Wq52jMIBjFQSoB7C7UPICBE9SaIYfQhxfwmaNIiXQ/1fFZRiJtqGy/KXTBPqSvhBaVEe7KgVeptRCnRnnjl7pwqOri1qUvZLEU+1xBFfxYBspVuiN4mQgiWCXnhTqXCRPCU/F5Z9qQaV6r7bJvyvygY2sNqzBj0Spn4SPcr1acZeCe6K+5EUZI9GbBYvyx4BXHlTLFyFkOVhCZVzoSYSxD86zqlTDL8iBSDzshCPLzIMMoWvtxyVjh7KFJqtPCJSsWQMlf+CTAAQPsFPY9wcFMAAAAASUVORK5CYII='
-      var that = this
-      img.onload = function() {
-        setTimeout(function() {
-          that.myEchart.resize()
+      img.src = require('@/assets/img/mapBg.png')
+      img.onload = () => {
+        setTimeout(() => {
+          this.myEchart.resize()
         }, 100)
       }
 
@@ -42,7 +41,7 @@ export default {
         geo: [{
           map: '湖南',
           zlevel: 2,
-          zoom: 1.1,
+          // zoom: 1.1,
           label: {
             normal: {
               show: false
@@ -60,6 +59,7 @@ export default {
               borderWidth: 1,
               color: {
                 image: img
+                // repeat: 'no-repeat'
               }
             },
             emphasis: {
@@ -72,7 +72,7 @@ export default {
         {
           map: '湖南',
           zlevel: 1,
-          zoom: 1.1,
+          // zoom: 1.1,
           roam: false,
           center: [111.60, 27.44],
           label: {
@@ -93,7 +93,7 @@ export default {
         },
         {
           map: '湖南',
-          zoom: 1.1,
+          // zoom: 1.1,
           roam: false,
           center: [111.60, 27.58],
           label: {
@@ -160,8 +160,9 @@ export default {
               borderColor: '#fff',
               borderWidth: 1
             },
+            symbolSize: 4,
             itemStyle: {
-              color: '#91CCF5'
+              color: '#FAFE93'
             },
             data: this.data
           }
@@ -194,6 +195,16 @@ export default {
     },
     reset() {
       this.myEchart.resize()
+    },
+    getBase64Image(img) {
+      var canvas = document.createElement('canvas')
+      canvas.width = img.width
+      canvas.height = img.height
+      var ctx = canvas.getContext('2d')
+      ctx.drawImage(img, 0, 0, img.width, img.height)
+      var ext = img.src.substring(img.src.lastIndexOf('.') + 1).toLowerCase()
+      var dataURL = canvas.toDataURL('image/' + ext)
+      return dataURL
     }
   }
 }

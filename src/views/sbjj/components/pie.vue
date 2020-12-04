@@ -32,29 +32,40 @@ export default {
   methods: {
     dram() {
       var option = {
-        // color: ['#FF6420'],
-        tooltip: {
-          trigger: 'axis',
-          formatter: '{a} <br/>{b}: {c} ({d}%)',
+        legend: {
+          type: 'scroll',
+          orient: 'vertical',
+          left: 20,
+          top: 20,
           textStyle: {
-            fontSize: 14
-          }
+            color: 'rgba(255,255,255, .5)'
+          },
+          icon: 'circle',
+          itemWidth: 6,
+          itemHeight: 6
         },
+        color: ['#2084D0', '#4ED3B7', '#E28A4A', '#7267AD', '#F36D85', '#B47B73'],
         series: [
           {
-            name: '访问来源',
+            name: '1',
             type: 'pie',
-            radius: ['50%', '70%'],
+            radius: ['65%', '85%'],
             avoidLabelOverlap: false,
             label: {
               show: false,
               position: 'center'
             },
+            itemStyle: {
+              borderRadius: 10,
+              borderColor: '#021b4e',
+              borderWidth: 4
+            },
             emphasis: {
               label: {
                 show: true,
-                fontSize: '14',
-                fontWeight: 'bold'
+                fontSize: '12',
+                fontWeight: 'bold',
+                formatter: '{b}\n{c}元'
               }
             },
             labelLine: {
