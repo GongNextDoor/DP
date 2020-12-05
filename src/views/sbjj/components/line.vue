@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'Line',
+  name: 'MyLine',
   props: {
     data: {
       type: Object,

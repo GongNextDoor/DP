@@ -7,15 +7,17 @@ export default {
   name: 'Pie',
   props: {
     data: {
-      type: Object,
-      default: () => {}
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
       id: `pie${Number(
         Math.random().toString().substr(3, 3) + Date.now()
-      ).toString(36)}`
+      ).toString(36)}`,
+      myEchart: null,
+      mTime: null
     }
   },
   watch: {
@@ -71,21 +73,40 @@ export default {
             labelLine: {
               show: false
             },
-            data: [
-              { value: 335, name: '直接访问' },
-              { value: 310, name: '邮件营销' },
-              { value: 234, name: '联盟广告' },
-              { value: 135, name: '视频广告' },
-              { value: 1548, name: '搜索引擎' }
-            ]
+            data: this.data
           }
         ]
       }
-      var echarts = this.$echarts.init(document.getElementById(this.id))
-      echarts.setOption(option, true)
+      this.myEchart = this.$echarts.init(document.getElementById(this.id))
+      this.myEchart.setOption(option, true)
       window.addEventListener('resize', () => {
-        echarts.resize()
+        this.myEchart.resize()
       })
+
+      var index = 0
+      clearInterval(this.mTime)
+      this.mTime = setInterval(() => {
+        if (index !== 0) {
+          this.myEchart.dispatchAction({
+            type: 'downplay',
+            name: option.series[0].data[index - 1].name
+          })
+        }
+        this.myEchart.dispatchAction({
+          type: 'highlight',
+          name: option.series[0].data[index].name
+        })
+        index++
+        if (index >= option.series[0].data.length) {
+          index = 0
+          setTimeout(() => {
+            this.myEchart.dispatchAction({
+              type: 'downplay',
+              name: option.series[0].data[option.series[0].data.length - 1].name
+            })
+          }, 1400)
+        }
+      }, 1500)
     }
   }
 }

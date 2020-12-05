@@ -117,24 +117,6 @@ export default {
             type: 'effectScatter',
             coordinateSystem: 'geo',
             zlevel: 3,
-            tooltip: {
-              trigger: 'item',
-              formatter: (par) => {
-                return `
-                  <div class="mapTip">
-                    <div class="mt-title">${par.name}</div>
-                    <div class="mt-item">
-                      <div class="mt-it-name">基金收入（元）：</div>
-                      <div class="mt-it-num">${par.data.num1}</div>
-                    </div>
-                    <div class="mt-item">
-                      <div class="mt-it-name">基金支出（元）：</div>
-                      <div class="mt-it-num">${par.data.num2}</div>
-                    </div>
-                  </div>
-                `
-              }
-            },
             label: {
               show: true,
               textStyle: {
@@ -174,24 +156,10 @@ export default {
         this.myEchart.resize()
       })
 
-      var index = 0
-      clearInterval(this.mTime)
-      this.mTime = setInterval(() => {
-        this.myEchart.dispatchAction({
-          type: 'geoSelect',
-          seriesIndex: 0,
-          name: option.series[0].data[index].name
-        })
-        this.myEchart.dispatchAction({
-          type: 'showTip',
-          seriesIndex: 0,
-          dataIndex: index
-        })
-        index++
-        if (index >= option.series[0].data.length) {
-          index = 0
-        }
-      }, 1500)
+      this.myEchart.on('click', params => {
+        console.log(params)
+        this.$emit('handleClick', params)
+      })
     },
     reset() {
       this.myEchart.resize()
