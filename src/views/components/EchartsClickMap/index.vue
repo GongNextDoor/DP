@@ -157,7 +157,6 @@ export default {
       })
 
       this.myEchart.on('click', params => {
-        console.log(params)
         this.$emit('handleClick', params)
       })
     },
