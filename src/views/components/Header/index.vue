@@ -90,14 +90,13 @@ export default {
 <style scoped lang="scss">
   .header {
     position: relative;
-    padding-top: 20px;
-    height: 68px;
+    height: 100px;
     background-image: url(../../../assets/img/header-bg.png);
-    background-size: contain;
+    background-size: 100% 100%;
     background-position: center;
 
     .title {
-      height: 60px;
+      height: 50px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -127,7 +126,7 @@ export default {
     .time {
       position: absolute;
       left: 30px;
-      bottom: 27px;
+      bottom: 60px;
       padding: 2px 10px;
       color: #fff;
       font-size: 16px;

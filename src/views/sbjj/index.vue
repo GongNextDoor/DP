@@ -170,7 +170,7 @@ export default {
       .tag {
         padding-top: 10px;
         float: right;
-        margin-right: 75px;
+        margin-right: 55px;
         color: #ccc;
       }
     }
