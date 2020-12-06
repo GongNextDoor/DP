@@ -85,7 +85,7 @@ export default {
             normal: {
               areaColor: '#192B64',
               borderColor: '#FDFDFE',
-              borderWidth: 6,
+              borderWidth: 3,
               shadowColor: '#07277D',
               shadowOffsetY: 0,
               shadowBlur: 60
