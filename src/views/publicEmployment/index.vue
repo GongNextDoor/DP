@@ -22,7 +22,7 @@
             <div class="item">
               <div class="tit">
                 <span />
-                <p>贫困劳动力人数</p>
+                <p>登记失业人员</p>
               </div>
               <div class="num">
                 <h3>{{ num2 }}</h3>
@@ -36,7 +36,7 @@
             <div class="item">
               <div class="tit">
                 <span />
-                <p>登记失业人员</p>
+                <p>贫困劳动力人数</p>
               </div>
               <div class="num">
                 <h3>{{ num3 }}</h3>
@@ -113,6 +113,14 @@
           <div class="band2">
             <div class="top">
               <BoxItem title="基本公共就业服务">
+                <div class="info">
+                  <div class="peopole">
+                    登记就业人数：<span>{{ num8 }}</span>人
+                  </div>
+                  <div class="peopole">
+                    登记失业人数：<span>{{ num9 }}</span>人
+                  </div>
+                </div>
                 <EchartsLine :data="lineData" />
               </BoxItem>
             </div>
@@ -170,7 +178,7 @@ export default {
         '就业形势分析',
         '就业周期',
         '年龄结构分析',
-        '文化程度分析分析'
+        '文化程度分析'
       ],
       name1: '失业周期',
       isactive2: 0,
@@ -184,6 +192,8 @@ export default {
       num5: '0',
       num6: '0',
       num7: '0',
+      num8: '0',
+      num9: '0',
       barData: {
         xData: ['社保补贴', '公益性岗位补贴', '鉴定补贴', '见习补贴', '职业培训补贴', '创业培训', '求职创业补贴', '其他补贴'],
         yData1: [],
@@ -348,6 +358,8 @@ export default {
         this.barData.yData2 = ['0', '0', '0', '0', '0', '0', '492.15', '0']
         this.num6 = '3281'
         this.num7 = '492.15'
+        this.num8 = '805315'
+        this.num9 = '75545'
       } else if (name === '怀化市') {
         this.num1 = 5253948
         this.num2 = 14725
@@ -362,6 +374,8 @@ export default {
         this.barData.yData2 = ['350.92', '0', '7.33', '0', '0', '734.79', '403.22', '58.50']
         this.num6 = '16155'
         this.num7 = '1554.77'
+        this.num8 = '314474'
+        this.num9 = '14725'
       } else {
         this.num1 = 27694074
         this.num2 = 314474
@@ -376,6 +390,8 @@ export default {
         this.barData.yData2 = ['25440.44', '24296.47', '1237.53', '6297.88', '2541.49', '12529.13', '7101.32', '18459.57']
         this.num6 = '1136338'
         this.num7 = '97903.86'
+        this.num8 = '3410925'
+        this.num9 = '314474'
       }
     },
     mapClick(e) {
@@ -508,7 +524,7 @@ export default {
       display: flex;
       height: 60%;
       .band1 {
-        flex: 1;
+        width: 55%;
         height: 100%;
         .nav {
           position: relative;
@@ -561,17 +577,35 @@ export default {
       .band2 {
         flex: 1;
         .top {
-          height: 50%;
+          height: 60%;
+          .info {
+            display: flex;
+            justify-content: center;
+            padding-top: 15px;
+            color: #748bb2;
+            font-size: 16px;
+            .peopole {
+              margin-right: 30px;
+              span {
+                color: #cd5428;
+              }
+            }
+            .currcy {
+              span {
+                color: #a88c3b;
+              }
+            }
+          }
         }
         .bottom {
-          height: 50%;
+          height: 40%;
         }
       }
     }
     .ct-right-bottom {
       height: 40%;
       .top {
-        height: 100%;
+        height: 95%;
         .info {
           display: flex;
           justify-content: center;

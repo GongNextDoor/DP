@@ -35,8 +35,8 @@ export default {
     dram() {
       var option = {
         grid: {
-          top: '10%',
-          left: '10%',
+          top: '20%',
+          left: '80',
           right: '2%',
           bottom: '20%'
           // containLabel: true

@@ -41,7 +41,7 @@ export default {
         geo: [{
           map: '湖南',
           zlevel: 2,
-          // zoom: 1.1,
+          zoom: 1.2,
           label: {
             normal: {
               show: false
@@ -72,7 +72,7 @@ export default {
         {
           map: '湖南',
           zlevel: 1,
-          // zoom: 1.1,
+          zoom: 1.2,
           roam: false,
           center: [111.60, 27.44],
           label: {
@@ -93,7 +93,7 @@ export default {
         },
         {
           map: '湖南',
-          // zoom: 1.1,
+          zoom: 1.2,
           roam: false,
           center: [111.60, 27.58],
           label: {

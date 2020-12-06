@@ -94,6 +94,8 @@ export default {
     background-image: url(../../../assets/img/header-bg.png);
     background-size: 100% 100%;
     background-position: center;
+    position: relative;
+    top: 10px;
 
     .title {
       height: 50px;
@@ -110,6 +112,7 @@ export default {
         background-color: rgba(42,108,254, .1);
         color: #fff;
         border-radius: 30px;
+        margin-left: 40px;
       }
 
       .smallTitle {

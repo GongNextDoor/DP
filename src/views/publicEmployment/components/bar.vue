@@ -38,7 +38,7 @@ export default {
           top: '10%',
           left: '5%',
           right: '2%',
-          bottom: '20%'
+          bottom: '60'
           // containLabel: true
         },
         legend: {
