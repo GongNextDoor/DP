@@ -7,7 +7,7 @@
       <div class="name">{{ title }}</div>
       <div class="num">
         <span>{{ num }}</span>
-        <small>元</small>
+        <small>亿元</small>
       </div>
     </div>
   </div>

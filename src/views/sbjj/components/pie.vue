@@ -67,7 +67,7 @@ export default {
                 show: true,
                 fontSize: '12',
                 fontWeight: 'bold',
-                formatter: '{b}\n{c}元'
+                formatter: '{b}\n{c}亿元'
               }
             },
             labelLine: {

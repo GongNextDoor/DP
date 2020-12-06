@@ -34,10 +34,9 @@ export default {
       var option = {
         grid: {
           top: '10%',
-          left: '10%',
+          left: '40',
           right: '2%',
-          bottom: '50'
-          // containLabel: true
+          bottom: '60'
         },
         color: ['#FF6420'],
         tooltip: {
@@ -58,7 +57,7 @@ export default {
             axisLabel: {
               interval: 0,
               color: 'rgba(255,255,255, .5)',
-              fontSize: 10,
+              fontSize: 12,
               formatter: function(params) {
                 var newParamsName = ''// 最终拼接成的字符串
                 var paramsNameNumber = params.length// 实际标签的个数

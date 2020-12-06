@@ -37,9 +37,8 @@ export default {
           left: '10%',
           right: '2%',
           bottom: '10%'
-          // containLabel: true
         },
-        color: ['#FF6420'],
+        color: ['#468EDD'],
         tooltip: {
           trigger: 'axis',
           textStyle: {
@@ -65,7 +64,6 @@ export default {
             axisTick: {
               show: false
             },
-            // boundaryGap: false,
             data: this.data.xData
 
           }
