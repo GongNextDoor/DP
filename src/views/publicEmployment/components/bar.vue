@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'MyLine',
+  name: 'Bar',
   props: {
     data: {
       type: Object,
@@ -13,8 +13,10 @@ export default {
   },
   data() {
     return {
-      id: `line${Number(
-        Math.random().toString().substr(3, 3) + Date.now()
+      id: `bar${Number(
+        Math.random()
+          .toString()
+          .substr(3, 3) + Date.now()
       ).toString(36)}`
     }
   },
@@ -34,21 +36,32 @@ export default {
       var option = {
         grid: {
           top: '10%',
-          left: '10%',
+          left: '5%',
           right: '2%',
-          bottom: '30'
+          bottom: '20%'
+          // containLabel: true
         },
-        color: ['#468EDD'],
+        legend: {
+          data: ['人数', '金额'],
+          right: 60,
+          top: 10,
+          padding: [8, 0, 0, 0],
+          textStyle: {
+            color: '#B3B6BD'
+          }
+        },
+        color: ['#FF6420'],
         tooltip: {
           trigger: 'axis',
           textStyle: {
             fontSize: 14
           }
+
         },
         xAxis: [
           {
             type: 'category',
-            name: '月',
+            name: '',
             axisLine: {
               show: true,
               lineStyle: {
@@ -64,8 +77,8 @@ export default {
             axisTick: {
               show: false
             },
+            // boundaryGap: false,
             data: this.data.xData
-
           }
         ],
         yAxis: [
@@ -92,32 +105,32 @@ export default {
         ],
         series: [
           {
-            name: '人次',
-            type: 'line',
-            smooth: true, // 是否平滑
-            showAllSymbol: true,
-            symbol: 'circle',
-            symbolSize: 0,
-            lineStyle: {
+            name: '人数',
+            type: 'bar',
+            barWidth: 20,
+            itemStyle: {
               normal: {
-                color: '#468EDD',
-                width: 2
+                color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: '#4fd6b9' },
+                  { offset: 1, color: '#195372' }
+                ])
               }
             },
-            areaStyle: {
+            data: this.data.yData1
+          },
+          {
+            name: '金额',
+            type: 'bar',
+            barWidth: 20,
+            itemStyle: {
               normal: {
-                color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                  offset: 0,
-                  color: '#468EDD88'
-                },
-                {
-                  offset: 1,
-                  color: '#468EDD00'
-                }
-                ], false)
+                color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: '#0ea3f3' },
+                  { offset: 1, color: '#043a76' }
+                ])
               }
             },
-            data: this.data.yData
+            data: this.data.yData2
           }
         ]
       }
@@ -132,7 +145,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.echarts{
+.echarts {
   width: 100%;
   height: 100%;
 }

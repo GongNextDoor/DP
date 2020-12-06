@@ -1,6 +1,8 @@
 <template>
   <div class="box">
-    <div class="title">{{ title }}</div>
+    <div class="title">
+      {{ title }}<slot name="title-btns" />
+    </div>
     <div class="img">
       <img src="../../../assets/img/cbyw-t1.png" alt="">
     </div>
@@ -29,3 +31,21 @@ export default {
   }
 }
 </script>
+<style scoped lang="scss">
+ .box-tools{
+   display:inline-block;
+    margin-left: 5px;
+    &::before{
+      content: '|';
+      margin-right: 5px;
+    }
+    span{
+      font-size: 14px;
+      color: #6697e3;
+      cursor: pointer;
+      &:hover{
+        color: #fff;
+      }
+    }
+  }
+</style>

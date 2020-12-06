@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'MyLine',
+  name: 'LegendLine',
   props: {
     data: {
       type: Object,
@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      id: `line${Number(
+      id: `legendLine${Number(
         Math.random().toString().substr(3, 3) + Date.now()
       ).toString(36)}`
     }
@@ -35,8 +35,22 @@ export default {
         grid: {
           top: '10%',
           left: '10%',
+          right: '150px',
+          bottom: '10%'
+          // containLabel: true
+        },
+        legend: { // 图例组件，颜色和名字
           right: '2%',
-          bottom: '30'
+          top: '5%',
+          textStyle: {
+            color: '#fff',
+            fontStyle: 'normal',
+            fontFamily: '微软雅黑',
+            fontSize: 14
+          },
+          icon: 'circle',
+          itemWidth: 6,
+          itemHeight: 6
         },
         color: ['#468EDD'],
         tooltip: {
@@ -64,6 +78,7 @@ export default {
             axisTick: {
               show: false
             },
+            // boundaryGap: false,
             data: this.data.xData
 
           }
@@ -92,10 +107,9 @@ export default {
         ],
         series: [
           {
-            name: '人次',
+            name: '居民养老保险',
             type: 'line',
             smooth: true, // 是否平滑
-            showAllSymbol: true,
             symbol: 'circle',
             symbolSize: 0,
             lineStyle: {

@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'MyLine',
+  name: 'Bar',
   props: {
     data: {
       type: Object,
@@ -13,8 +13,10 @@ export default {
   },
   data() {
     return {
-      id: `line${Number(
-        Math.random().toString().substr(3, 3) + Date.now()
+      id: `bar${Number(
+        Math.random()
+          .toString()
+          .substr(3, 3) + Date.now()
       ).toString(36)}`
     }
   },
@@ -36,10 +38,12 @@ export default {
           top: '10%',
           left: '10%',
           right: '2%',
-          bottom: '30'
+          bottom: '20%'
+          // containLabel: true
         },
-        color: ['#468EDD'],
+        color: ['#FF6420'],
         tooltip: {
+          show: false,
           trigger: 'axis',
           textStyle: {
             fontSize: 14
@@ -48,7 +52,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            name: '月',
+            name: '',
             axisLine: {
               show: true,
               lineStyle: {
@@ -64,8 +68,8 @@ export default {
             axisTick: {
               show: false
             },
+            // boundaryGap: false,
             data: this.data.xData
-
           }
         ],
         yAxis: [
@@ -92,33 +96,60 @@ export default {
         ],
         series: [
           {
-            name: '人次',
-            type: 'line',
-            smooth: true, // 是否平滑
-            showAllSymbol: true,
-            symbol: 'circle',
-            symbolSize: 0,
-            lineStyle: {
-              normal: {
-                color: '#468EDD',
-                width: 2
-              }
-            },
-            areaStyle: {
+            name: '',
+            type: 'bar',
+            barWidth: 14,
+            itemStyle: {
               normal: {
                 color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                   offset: 0,
-                  color: '#468EDD88'
+                  color: '#00FFE3'
                 },
                 {
                   offset: 1,
-                  color: '#468EDD00'
+                  color: '#4693EC'
                 }
-                ], false)
+                ])
               }
             },
-            data: this.data.yData
+            data: this.data.yData,
+            z: 10,
+            zlevel: 0,
+            label: {
+              normal: {
+                show: true,
+                position: 'top',
+                formatter: '{c}',
+                textStyle: {
+                  color: '#748bb2',
+                  fontSize: 12
+                }
+              }
+            }
+          },
+
+          {
+            // 分隔
+            type: 'pictorialBar',
+            itemStyle: {
+              normal: {
+                color: '#061348'
+              }
+            },
+            symbolRepeat: 'fixed',
+            symbolMargin: 2,
+            symbol: 'rect',
+            symbolClip: true,
+            symbolSize: [18, 2],
+            symbolPosition: 'start',
+            symbolOffset: [1, -1],
+            // symbolBoundingData: this.total,
+            data: this.data.yData,
+            width: 20,
+            z: 0,
+            zlevel: 1
           }
+
         ]
       }
       var echarts = this.$echarts.init(document.getElementById(this.id))
@@ -132,7 +163,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.echarts{
+.echarts {
   width: 100%;
   height: 100%;
 }

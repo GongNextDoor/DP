@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'MyLine',
+  name: 'Line',
   props: {
     data: {
       type: Object,
@@ -14,7 +14,9 @@ export default {
   data() {
     return {
       id: `line${Number(
-        Math.random().toString().substr(3, 3) + Date.now()
+        Math.random()
+          .toString()
+          .substr(3, 3) + Date.now()
       ).toString(36)}`
     }
   },
@@ -33,12 +35,13 @@ export default {
     dram() {
       var option = {
         grid: {
-          top: '10%',
+          top: '22%',
           left: '10%',
           right: '2%',
-          bottom: '30'
+          bottom: '12%'
+          // containLabel: true
         },
-        color: ['#468EDD'],
+        color: ['#FF6420'],
         tooltip: {
           trigger: 'axis',
           textStyle: {
@@ -48,7 +51,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            name: '月',
+            name: '季度',
             axisLine: {
               show: true,
               lineStyle: {
@@ -64,14 +67,18 @@ export default {
             axisTick: {
               show: false
             },
+            // boundaryGap: false,
             data: this.data.xData
-
           }
         ],
         yAxis: [
           {
+            name: '失业率(%)',
             type: 'value',
             min: 0,
+            nameTextStyle: {
+              color: '#c2dcf9'
+            },
             axisLine: {
               show: true,
               lineStyle: {
@@ -92,7 +99,7 @@ export default {
         ],
         series: [
           {
-            name: '人次',
+            name: '失业率',
             type: 'line',
             smooth: true, // 是否平滑
             showAllSymbol: true,
@@ -106,15 +113,23 @@ export default {
             },
             areaStyle: {
               normal: {
-                color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                  offset: 0,
-                  color: '#468EDD88'
-                },
-                {
-                  offset: 1,
-                  color: '#468EDD00'
-                }
-                ], false)
+                color: new this.$echarts.graphic.LinearGradient(
+                  0,
+                  0,
+                  0,
+                  1,
+                  [
+                    {
+                      offset: 0,
+                      color: '#468EDD88'
+                    },
+                    {
+                      offset: 1,
+                      color: '#468EDD00'
+                    }
+                  ],
+                  false
+                )
               }
             },
             data: this.data.yData
@@ -132,7 +147,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.echarts{
+.echarts {
   width: 100%;
   height: 100%;
 }

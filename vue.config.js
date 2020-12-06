@@ -10,7 +10,7 @@ const name = 'powersi-template'
 const port = process.env.port || process.env.npm_config_port || 9527
 
 module.exports = {
-  publicPath: '/hygeia-bss/',
+  publicPath: './',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',

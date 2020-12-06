@@ -9,19 +9,19 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/sbjj',
+    redirect: '/security-fund',
     children: [
       {
-        path: 'fund',
-        component: () => import('@/views/fund/index'),
-        name: 'fund',
-        meta: { title: '社保基金' }
-      },
-      {
-        path: 'sbjj',
+        path: 'security-fund',
         component: () => import('@/views/sbjj/index'),
         name: 'sbjj',
         meta: { title: '社保基金' }
+      },
+      {
+        path: 'public-employment',
+        component: () => import('@/views/publicEmployment/index'),
+        name: 'PublicEmployment',
+        meta: { title: '公共就业服务' }
       }
     ]
   }
