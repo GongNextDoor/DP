@@ -16,7 +16,8 @@ export default {
   data() {
     return {
       myEchart: null,
-      mTime: null
+      mTime: null,
+      animaFlag: true
     }
   },
   mounted() {
@@ -174,22 +175,31 @@ export default {
         this.myEchart.resize()
       })
 
+      this.myEchart.on('mouseover', params => {
+        this.animaFlag = false
+      })
+      this.myEchart.on('mouseout', params => {
+        this.animaFlag = true
+      })
+
       var index = 0
       clearInterval(this.mTime)
       this.mTime = setInterval(() => {
-        this.myEchart.dispatchAction({
-          type: 'geoSelect',
-          seriesIndex: 0,
-          name: option.series[0].data[index].name
-        })
-        this.myEchart.dispatchAction({
-          type: 'showTip',
-          seriesIndex: 0,
-          dataIndex: index
-        })
-        index++
-        if (index >= option.series[0].data.length) {
-          index = 0
+        if (this.animaFlag) {
+          this.myEchart.dispatchAction({
+            type: 'geoSelect',
+            seriesIndex: 0,
+            name: option.series[0].data[index].name
+          })
+          this.myEchart.dispatchAction({
+            type: 'showTip',
+            seriesIndex: 0,
+            dataIndex: index
+          })
+          index++
+          if (index >= option.series[0].data.length) {
+            index = 0
+          }
         }
       }, 1500)
     },
