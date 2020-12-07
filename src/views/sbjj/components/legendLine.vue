@@ -64,7 +64,6 @@ export default {
         xAxis: [
           {
             type: 'category',
-            name: '月',
             axisLine: {
               show: true,
               lineStyle: {

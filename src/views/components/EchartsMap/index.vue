@@ -201,7 +201,7 @@ export default {
             index = 0
           }
         }
-      }, 1500)
+      }, 3000)
     },
     reset() {
       this.myEchart.resize()
