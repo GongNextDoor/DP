@@ -125,11 +125,11 @@ export default {
                   <div class="mapTip">
                     <div class="mt-title">${par.name}</div>
                     <div class="mt-item">
-                      <div class="mt-it-name">基金收入（元）：</div>
+                      <div class="mt-it-name">基金收入（万元）：</div>
                       <div class="mt-it-num">${par.data.num1}</div>
                     </div>
                     <div class="mt-item">
-                      <div class="mt-it-name">基金支出（元）：</div>
+                      <div class="mt-it-name">基金支出（万元）：</div>
                       <div class="mt-it-num">${par.data.num2}</div>
                     </div>
                   </div>

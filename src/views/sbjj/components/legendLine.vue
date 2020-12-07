@@ -7,8 +7,8 @@ export default {
   name: 'LegendLine',
   props: {
     data: {
-      type: Object,
-      default: () => {}
+      type: Array,
+      default: () => []
     }
   },
   data() {
