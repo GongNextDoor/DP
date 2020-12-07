@@ -13,6 +13,7 @@ export default {
   },
   data() {
     return {
+      chart: null,
       id: `bar${Number(
         Math.random()
           .toString()
@@ -29,7 +30,16 @@ export default {
     }
   },
   mounted() {
-    this.dram()
+    this.$nextTick(() => {
+      this.dram()
+    })
+  },
+  beforeDestroy() {
+    if (!this.chart) {
+      return
+    }
+    this.chart.dispose()
+    this.chart = null
   },
   methods: {
     dram() {
@@ -101,14 +111,15 @@ export default {
             barWidth: 14,
             itemStyle: {
               normal: {
-                color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                  offset: 0,
-                  color: '#00FFE3'
-                },
-                {
-                  offset: 1,
-                  color: '#4693EC'
-                }
+                color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  {
+                    offset: 0,
+                    color: '#00FFE3'
+                  },
+                  {
+                    offset: 1,
+                    color: '#4693EC'
+                  }
                 ])
               }
             },
@@ -149,13 +160,14 @@ export default {
             z: 0,
             zlevel: 1
           }
-
-        ]
+        ],
+        animationDurationUpdate: 800,
+        animationEasingUpdate: 'linear'
       }
-      var echarts = this.$echarts.init(document.getElementById(this.id))
-      echarts.setOption(option, true)
+      this.echarts = this.$echarts.init(document.getElementById(this.id))
+      this.echarts.setOption(option, true)
       window.addEventListener('resize', () => {
-        echarts.resize()
+        this.echarts.resize()
       })
     }
   }

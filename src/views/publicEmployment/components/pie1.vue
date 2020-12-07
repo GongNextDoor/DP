@@ -3,7 +3,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'Pie',
   props: {
@@ -122,23 +121,28 @@ export default {
                 value: 20,
                 itemStyle: {
                   normal: {
-                    color: new this.$echarts.graphic.LinearGradient(0, 1, 0, 0, [{
-                      offset: 0,
-                      color: '#418fce'
-                    }, {
-                      offset: 1,
-                      color: '#31c5fd'
-                    }])
+                    color: new this.$echarts.graphic.LinearGradient(
+                      0,
+                      1,
+                      0,
+                      0,
+                      [
+                        {
+                          offset: 0,
+                          color: '#418fce'
+                        },
+                        {
+                          offset: 1,
+                          color: '#31c5fd'
+                        }
+                      ]
+                    )
                   }
-
                 },
                 label: {
                   normal: {
-
                     formatter: function(params) {
-                      return (
-                        vm.name
-                      )
+                      return vm.name
                     },
                     position: 'center',
                     show: true,

@@ -35,15 +35,15 @@ export default {
     dram() {
       var option = {
         grid: {
-          top: '10%',
+          top: '15%',
           left: '5%',
-          right: '2%',
+          right: '5%',
           bottom: '60'
           // containLabel: true
         },
         legend: {
-          data: ['人数', '金额'],
-          right: 60,
+          data: ['补贴人次数', '补贴金额'],
+          right: 80,
           top: 10,
           padding: [8, 0, 0, 0],
           textStyle: {
@@ -56,7 +56,6 @@ export default {
           textStyle: {
             fontSize: 14
           }
-
         },
         xAxis: [
           {
@@ -84,6 +83,28 @@ export default {
         yAxis: [
           {
             type: 'value',
+            name: '人次',
+            min: 0,
+            axisLine: {
+              show: true,
+              lineStyle: {
+                color: 'rgba(209, 209, 209, .3)'
+              }
+            },
+            axisLabel: {
+              show: true,
+              color: 'rgba(255,255,255, .5)'
+            },
+            splitLine: {
+              show: false
+            },
+            axisTick: {
+              show: false
+            }
+          },
+          {
+            type: 'value',
+            name: '万元',
             min: 0,
             axisLine: {
               show: true,
@@ -105,7 +126,7 @@ export default {
         ],
         series: [
           {
-            name: '人数',
+            name: '补贴人次数',
             type: 'bar',
             barWidth: 20,
             itemStyle: {
@@ -119,9 +140,10 @@ export default {
             data: this.data.yData1
           },
           {
-            name: '金额',
+            name: '补贴金额',
             type: 'bar',
             barWidth: 20,
+            yAxisIndex: 1,
             itemStyle: {
               normal: {
                 color: new this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -132,7 +154,9 @@ export default {
             },
             data: this.data.yData2
           }
-        ]
+        ],
+        animationDurationUpdate: 800,
+        animationEasingUpdate: 'linear'
       }
       var echarts = this.$echarts.init(document.getElementById(this.id))
       echarts.setOption(option, true)

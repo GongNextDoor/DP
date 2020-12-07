@@ -35,10 +35,10 @@ export default {
     dram() {
       var option = {
         grid: {
-          top: '22%',
+          top: '28%',
           left: '10%',
           right: '2%',
-          bottom: '12%'
+          bottom: '15%'
           // containLabel: true
         },
         color: ['#FF6420'],
